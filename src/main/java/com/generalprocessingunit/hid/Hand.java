@@ -159,14 +159,15 @@ public class Hand {
             super(fingerList);
         }
 
-        public void vibrate(int intensity){
-            Map m = new HashMap<Integer, Integer>();
-            for(Finger finger : this){
-                m.put(finger.fingerIndex, intensity);      //fingertip vibrators
-                m.put(finger.fingerIndex + 5, intensity);  //knuckle vibrators
+        public void setVibrate(int intensity){
+            for(Finger f: this) {
+                f.setVibrate(intensity);
             }
+        }
 
-            gloveDevice.vibrate(m);
+        public void vibrate(int intensity){
+            setVibrate(intensity);
+            doVibrate();
         }
     }
 
