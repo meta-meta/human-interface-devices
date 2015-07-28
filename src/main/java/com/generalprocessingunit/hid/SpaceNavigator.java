@@ -9,8 +9,9 @@ import procontroll.ControllIO;
 import procontroll.ControllSlider;
 
 public class SpaceNavigator {
-    public PVector translation = new PVector();
-    public YawPitchRoll rotation = new YawPitchRoll();
+    // TODO: getters and setters to be consistent with SpaceNavMomentum
+    private PVector translation = new PVector();
+    private YawPitchRoll rotation = new YawPitchRoll();
 
     private ControllIO controll;
     private ControllDevice device; // my SpaceNavigator
@@ -73,6 +74,14 @@ public class SpaceNavigator {
                 powPreserveSign(sliderXrot.getValue(), 2),
                 powPreserveSign(sliderZrot.getValue(), 2)
         );
+    }
+
+    public PVector getTranslation() {
+        return translation;
+    }
+
+    public YawPitchRoll getRotation() {
+        return rotation;
     }
 
     private float powPreserveSign(float in, float e){
